@@ -1,13 +1,15 @@
+
 {
   "swagger": "2.0",
   "info": {
     "title": "proto/clarifai/api/endpoint.proto",
-    "version": "version not set"
+    "version": "1.0.0"
   },
   "schemes": [
-    "http",
     "https"
   ],
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
   "consumes": [
     "application/json"
   ],
@@ -15,10 +17,10 @@
     "application/json"
   ],
   "paths": {
-    "/v2/apps": {
+    "/apps": {
       "get": {
         "summary": "List all the apps.",
-        "operationId": "ListApps",
+        "operationId": "ListApps1",
         "responses": {
           "200": {
             "description": "",
@@ -56,14 +58,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "apps"
         ]
       }
     },
-    "/v2/apps/{user_app_id.app_id}": {
+    "/apps/{user_app_id.app_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nApps\n//////////////////////////////////////\nGet a specific app from an app.",
-        "operationId": "GetApp",
+        "operationId": "GetApp1",
         "responses": {
           "200": {
             "description": "",
@@ -87,11 +89,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "apps"
         ]
       }
     },
-    "/v2/billing_usage": {
+    "/billing_usage": {
       "get": {
         "summary": "Gets the billing cycle start and end date as well as invoice items.\nFIXME(zeiler): this path seems wrong, it should be by user I believe.",
         "operationId": "GetBillingUsage",
@@ -104,14 +106,14 @@
           }
         },
         "tags": [
-          "V2"
+          "billing_usage"
         ]
       }
     },
-    "/v2/concepts": {
+    "/concepts": {
       "get": {
         "summary": "List all the concepts.",
-        "operationId": "ListConcepts",
+        "operationId": "ListConcepts1",
         "responses": {
           "200": {
             "description": "",
@@ -149,12 +151,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       },
       "post": {
         "summary": "Add a concept to an app.",
-        "operationId": "PostConcepts",
+        "operationId": "PostConcepts1",
         "responses": {
           "200": {
             "description": "",
@@ -174,12 +176,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       },
       "patch": {
         "summary": "Patch one or more concepts.",
-        "operationId": "PatchConcepts",
+        "operationId": "PatchConcepts1",
         "responses": {
           "200": {
             "description": "",
@@ -199,14 +201,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/searches": {
+    "/concepts/searches": {
       "post": {
         "summary": "Search over the concepts to find one or more you're looking for.\nThis leverage the \"body\" parameter because we also have page and\nper_page as url query param variables in this request.",
-        "operationId": "PostConceptsSearches",
+        "operationId": "PostConceptsSearches1",
         "responses": {
           "200": {
             "description": "",
@@ -226,14 +228,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/status": {
+    "/concepts/status": {
       "get": {
         "summary": "//////////////////////////////////////\nConcepts\n//////////////////////////////////////\nList all the concepts with their positive and negative counts",
-        "operationId": "GetConceptCounts",
+        "operationId": "GetConceptCounts1",
         "responses": {
           "200": {
             "description": "",
@@ -271,14 +273,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/{concept_id}": {
+    "/concepts/{concept_id}": {
       "get": {
         "summary": "Get a specific concept from an app.",
-        "operationId": "GetConcept",
+        "operationId": "GetConcept1",
         "responses": {
           "200": {
             "description": "",
@@ -308,14 +310,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/{concept_id}/languages": {
+    "/concepts/{concept_id}/languages": {
       "get": {
         "summary": "List the concept in all the translated languages.",
-        "operationId": "ListConceptLanguages",
+        "operationId": "ListConceptLanguages1",
         "responses": {
           "200": {
             "description": "",
@@ -359,12 +361,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       },
       "post": {
         "summary": "Add a new tranlsation for this concept.",
-        "operationId": "PostConceptLanguages",
+        "operationId": "PostConceptLanguages1",
         "responses": {
           "200": {
             "description": "",
@@ -390,12 +392,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       },
       "patch": {
         "summary": "Patch the name for a given language names by passing in a list of concepts with the new names\nfor the languages.",
-        "operationId": "PatchConceptLanguages",
+        "operationId": "PatchConceptLanguages1",
         "responses": {
           "200": {
             "description": "",
@@ -421,14 +423,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/{concept_id}/languages/{language}": {
+    "/concepts/{concept_id}/languages/{language}": {
       "get": {
         "summary": "//////////////////////////////////////\nConcept Languages\n//////////////////////////////////////\nGet a specific concept from an app.",
-        "operationId": "GetConceptLanguage",
+        "operationId": "GetConceptLanguage1",
         "responses": {
           "200": {
             "description": "",
@@ -464,14 +466,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/{concept_id}/references": {
+    "/concepts/{concept_id}/references": {
       "get": {
         "summary": "//////////////////////////////////////\nConcept Relationships\n//////////////////////////////////////\nList the concept in all the outside sources.",
-        "operationId": "ListConceptReferences",
+        "operationId": "ListConceptReferences1",
         "responses": {
           "200": {
             "description": "",
@@ -516,14 +518,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/concepts/{concept_id}/{predicate}": {
+    "/concepts/{concept_id}/{predicate}": {
       "get": {
         "summary": "This is a general path for all these relations\nconcepts/{concept_id}/hypernyms\nconcepts/{concept_id}/hyponyms",
-        "operationId": "ListConceptRelations",
+        "operationId": "ListConceptRelations1",
         "responses": {
           "200": {
             "description": "",
@@ -573,14 +575,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "concepts"
         ]
       }
     },
-    "/v2/d03cb6c65/{model_id}": {
+    "/d03cb6c65/{model_id}": {
       "get": {
         "summary": "NOTE: private API",
-        "operationId": "GetModelWeight",
+        "operationId": "GetModelWeight1",
         "responses": {
           "200": {
             "description": "",
@@ -617,14 +619,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "d03cb6c65"
         ]
       }
     },
-    "/v2/d03cb6c65/{model_id}/versions/{version_id}": {
+    "/d03cb6c65/{model_id}/versions/{version_id}": {
       "get": {
         "summary": "NOTE: private API",
-        "operationId": "GetModelWeight",
+        "operationId": "GetModelWeight2",
         "responses": {
           "200": {
             "description": "",
@@ -660,11 +662,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "d03cb6c65"
         ]
       }
     },
-    "/v2/example/echo": {
+    "/example/echo": {
       "post": {
         "summary": "Common echo example.",
         "operationId": "Echo",
@@ -687,11 +689,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "example"
         ]
       }
     },
-    "/v2/healthz": {
+    "/healthz": {
       "get": {
         "summary": "//////////////////////////////////////\nHealth Check for API\n//////////////////////////////////////",
         "operationId": "GetHealthz",
@@ -704,14 +706,14 @@
           }
         },
         "tags": [
-          "V2"
+          "healthz"
         ]
       }
     },
-    "/v2/inputs": {
+    "/inputs": {
       "get": {
         "summary": "List all the inputs.",
-        "operationId": "ListInputs",
+        "operationId": "ListInputs1",
         "responses": {
           "200": {
             "description": "",
@@ -758,12 +760,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       },
       "delete": {
         "summary": "Delete multiple inputs in one request.",
-        "operationId": "DeleteInputs",
+        "operationId": "DeleteInputs1",
         "responses": {
           "200": {
             "description": "",
@@ -783,12 +785,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       },
       "post": {
         "summary": "Add a input to an app.",
-        "operationId": "PostInputs",
+        "operationId": "PostInputs1",
         "responses": {
           "200": {
             "description": "",
@@ -808,12 +810,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       },
       "patch": {
         "summary": "Patch one or more inputs.",
-        "operationId": "PatchInputs",
+        "operationId": "PatchInputs1",
         "responses": {
           "200": {
             "description": "",
@@ -833,14 +835,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       }
     },
-    "/v2/inputs/status": {
+    "/inputs/status": {
       "get": {
         "summary": "//////////////////////////////////////\nInputs\n//////////////////////////////////////\nPatch one or more inputs.",
-        "operationId": "GetInputCount",
+        "operationId": "GetInputCount1",
         "responses": {
           "200": {
             "description": "",
@@ -864,14 +866,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       }
     },
-    "/v2/inputs/stream": {
+    "/inputs/stream": {
       "get": {
         "summary": "Streams all the inputs starting from oldest assets.",
-        "operationId": "StreamInputs",
+        "operationId": "StreamInputs1",
         "responses": {
           "200": {
             "description": "",
@@ -915,14 +917,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       }
     },
-    "/v2/inputs/{input_id}": {
+    "/inputs/{input_id}": {
       "get": {
         "summary": "Get a specific input from an app.",
-        "operationId": "GetInput",
+        "operationId": "GetInput1",
         "responses": {
           "200": {
             "description": "",
@@ -952,12 +954,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       },
       "delete": {
         "summary": "Delete a single input.",
-        "operationId": "DeleteInput",
+        "operationId": "DeleteInput1",
         "responses": {
           "200": {
             "description": "",
@@ -975,11 +977,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "inputs"
         ]
       }
     },
-    "/v2/login": {
+    "/login": {
       "post": {
         "operationId": "PostLogin",
         "responses": {
@@ -1001,14 +1003,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "login"
         ]
       }
     },
-    "/v2/models": {
+    "/models": {
       "get": {
         "summary": "List all the models.",
-        "operationId": "ListModels",
+        "operationId": "ListModels1",
         "responses": {
           "200": {
             "description": "",
@@ -1055,12 +1057,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "delete": {
         "summary": "Delete multiple models in one request.",
-        "operationId": "DeleteModels",
+        "operationId": "DeleteModels1",
         "responses": {
           "200": {
             "description": "",
@@ -1080,12 +1082,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "post": {
         "summary": "Add a models to an app.",
-        "operationId": "PostModels",
+        "operationId": "PostModels1",
         "responses": {
           "200": {
             "description": "",
@@ -1105,12 +1107,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "patch": {
         "summary": "Patch one or more models.",
-        "operationId": "PatchModels",
+        "operationId": "PatchModels1",
         "responses": {
           "200": {
             "description": "",
@@ -1130,14 +1132,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/searches": {
+    "/models/searches": {
       "post": {
         "summary": "Search over the models to find one or more you're looking for.\nThis leverage the \"body\" parameter because we also have page and\nper_page as url query param variables in this request.",
-        "operationId": "PostModelsSearches",
+        "operationId": "PostModelsSearches1",
         "responses": {
           "200": {
             "description": "",
@@ -1157,14 +1159,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}": {
+    "/models/{model_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nModels\n//////////////////////////////////////\nGet a specific model from an app.",
-        "operationId": "GetModel",
+        "operationId": "GetModel1",
         "responses": {
           "200": {
             "description": "",
@@ -1207,12 +1209,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "delete": {
         "summary": "Delete a single model.",
-        "operationId": "DeleteModel",
+        "operationId": "DeleteModel1",
         "responses": {
           "200": {
             "description": "",
@@ -1230,14 +1232,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/feedback": {
+    "/models/{model_id}/feedback": {
       "post": {
         "summary": "Provide feedback for model predictions.",
-        "operationId": "PostModelFeedback",
+        "operationId": "PostModelFeedback1",
         "responses": {
           "200": {
             "description": "",
@@ -1263,14 +1265,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/inputs": {
+    "/models/{model_id}/inputs": {
       "get": {
         "summary": "List all the inputs.",
-        "operationId": "ListModelInputs",
+        "operationId": "ListModelInputs1",
         "responses": {
           "200": {
             "description": "",
@@ -1320,14 +1322,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/output_info": {
+    "/models/{model_id}/output_info": {
       "get": {
         "summary": "Get a the output info for a given model_id or model_id/version_id\ncombo.",
-        "operationId": "GetModelOutputInfo",
+        "operationId": "GetModelOutputInfo1",
         "responses": {
           "200": {
             "description": "",
@@ -1370,14 +1372,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/outputs": {
+    "/models/{model_id}/outputs": {
       "post": {
         "summary": "Get predicted outputs from the model.",
-        "operationId": "PostModelOutputs",
+        "operationId": "PostModelOutputs1",
         "responses": {
           "200": {
             "description": "",
@@ -1403,14 +1405,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions": {
+    "/models/{model_id}/versions": {
       "get": {
         "summary": "List all the models.",
-        "operationId": "ListModelVersions",
+        "operationId": "ListModelVersions1",
         "responses": {
           "200": {
             "description": "",
@@ -1464,12 +1466,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "post": {
         "summary": "Create a new model version to trigger training of the model.\nNOTE: inconsistency: do we want this to return a SingleModelResponse?",
-        "operationId": "PostModelVersions",
+        "operationId": "PostModelVersions1",
         "responses": {
           "200": {
             "description": "",
@@ -1495,14 +1497,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions/{version_id}": {
+    "/models/{model_id}/versions/{version_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nModel versions\n//////////////////////////////////////\nGet a specific model from an app.",
-        "operationId": "GetModelVersion",
+        "operationId": "GetModelVersion1",
         "responses": {
           "200": {
             "description": "",
@@ -1538,12 +1540,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "delete": {
         "summary": "Delete a single model.",
-        "operationId": "DeleteModelVersion",
+        "operationId": "DeleteModelVersion1",
         "responses": {
           "200": {
             "description": "",
@@ -1567,14 +1569,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions/{version_id}/feedback": {
+    "/models/{model_id}/versions/{version_id}/feedback": {
       "post": {
         "summary": "Provide feedback for model predictions.",
-        "operationId": "PostModelFeedback",
+        "operationId": "PostModelFeedback2",
         "responses": {
           "200": {
             "description": "",
@@ -1606,14 +1608,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions/{version_id}/inputs": {
+    "/models/{model_id}/versions/{version_id}/inputs": {
       "get": {
         "summary": "List all the inputs.",
-        "operationId": "ListModelInputs",
+        "operationId": "ListModelInputs2",
         "responses": {
           "200": {
             "description": "",
@@ -1663,14 +1665,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions/{version_id}/metrics": {
+    "/models/{model_id}/versions/{version_id}/metrics": {
       "get": {
         "summary": "Get the evaluation metrics for a model version.",
-        "operationId": "GetModelVersionMetrics",
+        "operationId": "GetModelVersionMetrics1",
         "responses": {
           "200": {
             "description": "",
@@ -1741,12 +1743,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       },
       "post": {
         "summary": "Get the evaluation metrics for a model version.",
-        "operationId": "PostModelVersionMetrics",
+        "operationId": "PostModelVersionMetrics1",
         "responses": {
           "200": {
             "description": "",
@@ -1778,14 +1780,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions/{version_id}/output_info": {
+    "/models/{model_id}/versions/{version_id}/output_info": {
       "get": {
         "summary": "Get a the output info for a given model_id or model_id/version_id\ncombo.",
-        "operationId": "GetModelOutputInfo",
+        "operationId": "GetModelOutputInfo2",
         "responses": {
           "200": {
             "description": "",
@@ -1827,14 +1829,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/models/{model_id}/versions/{version_id}/outputs": {
+    "/models/{model_id}/versions/{version_id}/outputs": {
       "post": {
         "summary": "Get predicted outputs from the model.",
-        "operationId": "PostModelOutputs",
+        "operationId": "PostModelOutputs2",
         "responses": {
           "200": {
             "description": "",
@@ -1866,14 +1868,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "models"
         ]
       }
     },
-    "/v2/my_scopes": {
+    "/my_scopes": {
       "get": {
         "summary": "API Keys in the public API -- request is itself Key/Token authorized, and will tell\nthe user the scopes/access of the key/credential they're providing, as computed by\nour authorizer:",
-        "operationId": "MyScopes",
+        "operationId": "MyScopes1",
         "responses": {
           "200": {
             "description": "",
@@ -1883,14 +1885,14 @@
           }
         },
         "tags": [
-          "V2"
+          "my_scopes"
         ]
       }
     },
-    "/v2/myscopes": {
+    "/myscopes": {
       "get": {
         "summary": "API Keys in the public API -- request is itself Key/Token authorized, and will tell\nthe user the scopes/access of the key/credential they're providing, as computed by\nour authorizer:",
-        "operationId": "MyScopes",
+        "operationId": "MyScopes2",
         "responses": {
           "200": {
             "description": "",
@@ -1900,11 +1902,11 @@
           }
         },
         "tags": [
-          "V2"
+          "myscopes"
         ]
       }
     },
-    "/v2/public_workflows": {
+    "/public_workflows": {
       "get": {
         "summary": "List all the workflows.",
         "operationId": "ListPublicWorkflows",
@@ -1933,11 +1935,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "public_workflows"
         ]
       }
     },
-    "/v2/scopes": {
+    "/scopes": {
       "get": {
         "operationId": "ListScopes",
         "responses": {
@@ -1949,14 +1951,14 @@
           }
         },
         "tags": [
-          "V2"
+          "scopes"
         ]
       }
     },
-    "/v2/searches": {
+    "/searches": {
       "post": {
         "summary": "//////////////////////////////////////\nSearches\n//////////////////////////////////////\nPatch one or more users.",
-        "operationId": "PostSearches",
+        "operationId": "PostSearches1",
         "responses": {
           "200": {
             "description": "",
@@ -1976,14 +1978,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "searches"
         ]
       }
     },
-    "/v2/searches/feedback": {
+    "/searches/feedback": {
       "post": {
         "summary": "Give search feedback.",
-        "operationId": "PostSearchFeedback",
+        "operationId": "PostSearchFeedback1",
         "responses": {
           "200": {
             "description": "",
@@ -2003,11 +2005,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "searches"
         ]
       }
     },
-    "/v2/signup": {
+    "/signup": {
       "post": {
         "operationId": "PostSignup",
         "responses": {
@@ -2029,11 +2031,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "signup"
         ]
       }
     },
-    "/v2/status_codes": {
+    "/status_codes": {
       "get": {
         "summary": "//////////////////////////////////////\nStatus Codes\n//////////////////////////////////////",
         "operationId": "ListStatusCodes",
@@ -2046,11 +2048,11 @@
           }
         },
         "tags": [
-          "V2"
+          "status_codes"
         ]
       }
     },
-    "/v2/status_codes/{status_code_id}": {
+    "/status_codes/{status_code_id}": {
       "get": {
         "operationId": "GetStatusCode",
         "responses": {
@@ -2070,11 +2072,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "status_codes"
         ]
       }
     },
-    "/v2/subscriptions": {
+    "/subscriptions": {
       "get": {
         "summary": "//////////////////////////////////////\nSubscriptions\n//////////////////////////////////////",
         "operationId": "GetSubscription",
@@ -2087,7 +2089,7 @@
           }
         },
         "tags": [
-          "V2"
+          "subscriptions"
         ]
       },
       "post": {
@@ -2111,11 +2113,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "subscriptions"
         ]
       }
     },
-    "/v2/token": {
+    "/token": {
       "post": {
         "summary": "//////////////////////////////////////\nTokens (to be deprecated)\n//////////////////////////////////////\nNote(zeiler): the body doens't exist on /v2/token because it takes in some form data in the\nrequest. Don't add it as it will break the API Clients.",
         "operationId": "PostToken",
@@ -2128,11 +2130,11 @@
           }
         },
         "tags": [
-          "V2"
+          "token"
         ]
       }
     },
-    "/v2/usage_intervals": {
+    "/usage_intervals": {
       "get": {
         "summary": "Get a list of valid usage intervals",
         "operationId": "ListUsageIntervals",
@@ -2145,11 +2147,11 @@
           }
         },
         "tags": [
-          "V2"
+          "usage_intervals"
         ]
       }
     },
-    "/v2/users": {
+    "/users": {
       "patch": {
         "summary": "Patch one or more users.",
         "operationId": "PatchUsers",
@@ -2172,11 +2174,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}": {
+    "/users/{user_app_id.user_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nUsers\n//////////////////////////////////////\nGet a specific user from an user.",
         "operationId": "GetUser",
@@ -2203,14 +2205,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps": {
+    "/users/{user_app_id.user_id}/apps": {
       "get": {
         "summary": "List all the apps.",
-        "operationId": "ListApps",
+        "operationId": "ListApps2",
         "responses": {
           "200": {
             "description": "",
@@ -2248,7 +2250,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
@@ -2279,7 +2281,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
@@ -2310,14 +2312,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nApps\n//////////////////////////////////////\nGet a specific app from an app.",
-        "operationId": "GetApp",
+        "operationId": "GetApp2",
         "responses": {
           "200": {
             "description": "",
@@ -2341,7 +2343,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
@@ -2370,14 +2372,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts": {
       "get": {
         "summary": "List all the concepts.",
-        "operationId": "ListConcepts",
+        "operationId": "ListConcepts2",
         "responses": {
           "200": {
             "description": "",
@@ -2415,12 +2417,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a concept to an app.",
-        "operationId": "PostConcepts",
+        "operationId": "PostConcepts2",
         "responses": {
           "200": {
             "description": "",
@@ -2452,12 +2454,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
         "summary": "Patch one or more concepts.",
-        "operationId": "PatchConcepts",
+        "operationId": "PatchConcepts2",
         "responses": {
           "200": {
             "description": "",
@@ -2489,14 +2491,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/searches": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/searches": {
       "post": {
         "summary": "Search over the concepts to find one or more you're looking for.\nThis leverage the \"body\" parameter because we also have page and\nper_page as url query param variables in this request.",
-        "operationId": "PostConceptsSearches",
+        "operationId": "PostConceptsSearches2",
         "responses": {
           "200": {
             "description": "",
@@ -2528,14 +2530,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/status": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/status": {
       "get": {
         "summary": "//////////////////////////////////////\nConcepts\n//////////////////////////////////////\nList all the concepts with their positive and negative counts",
-        "operationId": "GetConceptCounts",
+        "operationId": "GetConceptCounts2",
         "responses": {
           "200": {
             "description": "",
@@ -2573,14 +2575,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}": {
       "get": {
         "summary": "Get a specific concept from an app.",
-        "operationId": "GetConcept",
+        "operationId": "GetConcept2",
         "responses": {
           "200": {
             "description": "",
@@ -2610,14 +2612,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/languages": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/languages": {
       "get": {
         "summary": "List the concept in all the translated languages.",
-        "operationId": "ListConceptLanguages",
+        "operationId": "ListConceptLanguages2",
         "responses": {
           "200": {
             "description": "",
@@ -2661,12 +2663,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a new tranlsation for this concept.",
-        "operationId": "PostConceptLanguages",
+        "operationId": "PostConceptLanguages2",
         "responses": {
           "200": {
             "description": "",
@@ -2704,12 +2706,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
         "summary": "Patch the name for a given language names by passing in a list of concepts with the new names\nfor the languages.",
-        "operationId": "PatchConceptLanguages",
+        "operationId": "PatchConceptLanguages2",
         "responses": {
           "200": {
             "description": "",
@@ -2747,14 +2749,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/languages/{language}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/languages/{language}": {
       "get": {
         "summary": "//////////////////////////////////////\nConcept Languages\n//////////////////////////////////////\nGet a specific concept from an app.",
-        "operationId": "GetConceptLanguage",
+        "operationId": "GetConceptLanguage2",
         "responses": {
           "200": {
             "description": "",
@@ -2790,14 +2792,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/references": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/references": {
       "get": {
         "summary": "//////////////////////////////////////\nConcept Relationships\n//////////////////////////////////////\nList the concept in all the outside sources.",
-        "operationId": "ListConceptReferences",
+        "operationId": "ListConceptReferences2",
         "responses": {
           "200": {
             "description": "",
@@ -2842,14 +2844,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/{predicate}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/concepts/{concept_id}/{predicate}": {
       "get": {
         "summary": "This is a general path for all these relations\nconcepts/{concept_id}/hypernyms\nconcepts/{concept_id}/hyponyms",
-        "operationId": "ListConceptRelations",
+        "operationId": "ListConceptRelations2",
         "responses": {
           "200": {
             "description": "",
@@ -2899,14 +2901,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/d03cb6c65/{model_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/d03cb6c65/{model_id}": {
       "get": {
         "summary": "NOTE: private API",
-        "operationId": "GetModelWeight",
+        "operationId": "GetModelWeight3",
         "responses": {
           "200": {
             "description": "",
@@ -2943,14 +2945,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/d03cb6c65/{model_id}/versions/{version_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/d03cb6c65/{model_id}/versions/{version_id}": {
       "get": {
         "summary": "NOTE: private API",
-        "operationId": "GetModelWeight",
+        "operationId": "GetModelWeight4",
         "responses": {
           "200": {
             "description": "",
@@ -2986,14 +2988,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs": {
       "get": {
         "summary": "List all the inputs.",
-        "operationId": "ListInputs",
+        "operationId": "ListInputs2",
         "responses": {
           "200": {
             "description": "",
@@ -3040,12 +3042,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete multiple inputs in one request.",
-        "operationId": "DeleteInputs",
+        "operationId": "DeleteInputs2",
         "responses": {
           "200": {
             "description": "",
@@ -3077,12 +3079,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a input to an app.",
-        "operationId": "PostInputs",
+        "operationId": "PostInputs2",
         "responses": {
           "200": {
             "description": "",
@@ -3114,12 +3116,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
         "summary": "Patch one or more inputs.",
-        "operationId": "PatchInputs",
+        "operationId": "PatchInputs2",
         "responses": {
           "200": {
             "description": "",
@@ -3151,14 +3153,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs/status": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs/status": {
       "get": {
         "summary": "//////////////////////////////////////\nInputs\n//////////////////////////////////////\nPatch one or more inputs.",
-        "operationId": "GetInputCount",
+        "operationId": "GetInputCount2",
         "responses": {
           "200": {
             "description": "",
@@ -3182,14 +3184,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs/stream": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs/stream": {
       "get": {
         "summary": "Streams all the inputs starting from oldest assets.",
-        "operationId": "StreamInputs",
+        "operationId": "StreamInputs2",
         "responses": {
           "200": {
             "description": "",
@@ -3233,14 +3235,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs/{input_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/inputs/{input_id}": {
       "get": {
         "summary": "Get a specific input from an app.",
-        "operationId": "GetInput",
+        "operationId": "GetInput2",
         "responses": {
           "200": {
             "description": "",
@@ -3270,12 +3272,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete a single input.",
-        "operationId": "DeleteInput",
+        "operationId": "DeleteInput2",
         "responses": {
           "200": {
             "description": "",
@@ -3305,11 +3307,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/keys": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/keys": {
       "get": {
         "summary": "List keys by app_id",
         "operationId": "ListAppKeys",
@@ -3350,14 +3352,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models": {
       "get": {
         "summary": "List all the models.",
-        "operationId": "ListModels",
+        "operationId": "ListModels2",
         "responses": {
           "200": {
             "description": "",
@@ -3404,12 +3406,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete multiple models in one request.",
-        "operationId": "DeleteModels",
+        "operationId": "DeleteModels2",
         "responses": {
           "200": {
             "description": "",
@@ -3441,12 +3443,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a models to an app.",
-        "operationId": "PostModels",
+        "operationId": "PostModels2",
         "responses": {
           "200": {
             "description": "",
@@ -3478,12 +3480,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
         "summary": "Patch one or more models.",
-        "operationId": "PatchModels",
+        "operationId": "PatchModels2",
         "responses": {
           "200": {
             "description": "",
@@ -3515,14 +3517,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/searches": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/searches": {
       "post": {
         "summary": "Search over the models to find one or more you're looking for.\nThis leverage the \"body\" parameter because we also have page and\nper_page as url query param variables in this request.",
-        "operationId": "PostModelsSearches",
+        "operationId": "PostModelsSearches2",
         "responses": {
           "200": {
             "description": "",
@@ -3554,14 +3556,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nModels\n//////////////////////////////////////\nGet a specific model from an app.",
-        "operationId": "GetModel",
+        "operationId": "GetModel2",
         "responses": {
           "200": {
             "description": "",
@@ -3604,12 +3606,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete a single model.",
-        "operationId": "DeleteModel",
+        "operationId": "DeleteModel2",
         "responses": {
           "200": {
             "description": "",
@@ -3639,14 +3641,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/feedback": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/feedback": {
       "post": {
         "summary": "Provide feedback for model predictions.",
-        "operationId": "PostModelFeedback",
+        "operationId": "PostModelFeedback3",
         "responses": {
           "200": {
             "description": "",
@@ -3684,14 +3686,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/inputs": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/inputs": {
       "get": {
         "summary": "List all the inputs.",
-        "operationId": "ListModelInputs",
+        "operationId": "ListModelInputs3",
         "responses": {
           "200": {
             "description": "",
@@ -3741,14 +3743,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/output_info": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/output_info": {
       "get": {
         "summary": "Get a the output info for a given model_id or model_id/version_id\ncombo.",
-        "operationId": "GetModelOutputInfo",
+        "operationId": "GetModelOutputInfo3",
         "responses": {
           "200": {
             "description": "",
@@ -3791,14 +3793,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/outputs": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/outputs": {
       "post": {
         "summary": "Get predicted outputs from the model.",
-        "operationId": "PostModelOutputs",
+        "operationId": "PostModelOutputs3",
         "responses": {
           "200": {
             "description": "",
@@ -3836,14 +3838,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions": {
       "get": {
         "summary": "List all the models.",
-        "operationId": "ListModelVersions",
+        "operationId": "ListModelVersions2",
         "responses": {
           "200": {
             "description": "",
@@ -3897,12 +3899,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Create a new model version to trigger training of the model.\nNOTE: inconsistency: do we want this to return a SingleModelResponse?",
-        "operationId": "PostModelVersions",
+        "operationId": "PostModelVersions2",
         "responses": {
           "200": {
             "description": "",
@@ -3940,14 +3942,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nModel versions\n//////////////////////////////////////\nGet a specific model from an app.",
-        "operationId": "GetModelVersion",
+        "operationId": "GetModelVersion2",
         "responses": {
           "200": {
             "description": "",
@@ -3983,12 +3985,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete a single model.",
-        "operationId": "DeleteModelVersion",
+        "operationId": "DeleteModelVersion2",
         "responses": {
           "200": {
             "description": "",
@@ -4024,14 +4026,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/feedback": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/feedback": {
       "post": {
         "summary": "Provide feedback for model predictions.",
-        "operationId": "PostModelFeedback",
+        "operationId": "PostModelFeedback4",
         "responses": {
           "200": {
             "description": "",
@@ -4075,14 +4077,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/inputs": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/inputs": {
       "get": {
         "summary": "List all the inputs.",
-        "operationId": "ListModelInputs",
+        "operationId": "ListModelInputs4",
         "responses": {
           "200": {
             "description": "",
@@ -4132,14 +4134,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/metrics": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/metrics": {
       "get": {
         "summary": "Get the evaluation metrics for a model version.",
-        "operationId": "GetModelVersionMetrics",
+        "operationId": "GetModelVersionMetrics2",
         "responses": {
           "200": {
             "description": "",
@@ -4210,12 +4212,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Get the evaluation metrics for a model version.",
-        "operationId": "PostModelVersionMetrics",
+        "operationId": "PostModelVersionMetrics2",
         "responses": {
           "200": {
             "description": "",
@@ -4259,14 +4261,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/output_info": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/output_info": {
       "get": {
         "summary": "Get a the output info for a given model_id or model_id/version_id\ncombo.",
-        "operationId": "GetModelOutputInfo",
+        "operationId": "GetModelOutputInfo4",
         "responses": {
           "200": {
             "description": "",
@@ -4308,14 +4310,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/outputs": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/models/{model_id}/versions/{version_id}/outputs": {
       "post": {
         "summary": "Get predicted outputs from the model.",
-        "operationId": "PostModelOutputs",
+        "operationId": "PostModelOutputs4",
         "responses": {
           "200": {
             "description": "",
@@ -4359,14 +4361,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/searches": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/searches": {
       "post": {
         "summary": "//////////////////////////////////////\nSearches\n//////////////////////////////////////\nPatch one or more users.",
-        "operationId": "PostSearches",
+        "operationId": "PostSearches2",
         "responses": {
           "200": {
             "description": "",
@@ -4398,14 +4400,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/searches/feedback": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/searches/feedback": {
       "post": {
         "summary": "Give search feedback.",
-        "operationId": "PostSearchFeedback",
+        "operationId": "PostSearchFeedback2",
         "responses": {
           "200": {
             "description": "",
@@ -4437,14 +4439,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/visualizations": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/visualizations": {
       "post": {
         "summary": "Create a new visualization.",
-        "operationId": "PostVisualization",
+        "operationId": "PostVisualization1",
         "responses": {
           "200": {
             "description": "",
@@ -4476,14 +4478,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/visualizations/app": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/visualizations/app": {
       "get": {
         "summary": "//////////////////////////////////////\nVisualizations\n//////////////////////////////////////\nSee if there has been an app visualization.",
-        "operationId": "GetAppVisualization",
+        "operationId": "GetAppVisualization1",
         "responses": {
           "200": {
             "description": "",
@@ -4507,14 +4509,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/visualizations/{visualization_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/visualizations/{visualization_id}": {
       "get": {
         "summary": "Get an existing visualization by id.",
-        "operationId": "GetVisualization",
+        "operationId": "GetVisualization1",
         "responses": {
           "200": {
             "description": "",
@@ -4544,14 +4546,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs": {
       "get": {
         "summary": "List all the vocabs.",
-        "operationId": "ListVocabs",
+        "operationId": "ListVocabs1",
         "responses": {
           "200": {
             "description": "",
@@ -4589,12 +4591,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete multiple vocabs in one request.",
-        "operationId": "DeleteVocabs",
+        "operationId": "DeleteVocabs1",
         "responses": {
           "200": {
             "description": "",
@@ -4626,12 +4628,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a vocab to an app.",
-        "operationId": "PostVocabs",
+        "operationId": "PostVocabs1",
         "responses": {
           "200": {
             "description": "",
@@ -4663,12 +4665,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
         "summary": "Patch one or more vocabs.",
-        "operationId": "PatchVocabs",
+        "operationId": "PatchVocabs1",
         "responses": {
           "200": {
             "description": "",
@@ -4700,14 +4702,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs/{vocab_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs/{vocab_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nVocabs\n//////////////////////////////////////\nGet a specific vocab from an app.",
-        "operationId": "GetVocab",
+        "operationId": "GetVocab1",
         "responses": {
           "200": {
             "description": "",
@@ -4737,12 +4739,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete a single vocab.",
-        "operationId": "DeleteVocab",
+        "operationId": "DeleteVocab1",
         "responses": {
           "200": {
             "description": "",
@@ -4772,14 +4774,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs/{vocab_id}/concepts": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs/{vocab_id}/concepts": {
       "get": {
         "summary": "List all the vocabs.",
-        "operationId": "ListVocabConcepts",
+        "operationId": "ListVocabConcepts1",
         "responses": {
           "200": {
             "description": "",
@@ -4823,12 +4825,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete multiple concepts from a vocab in one request.",
-        "operationId": "DeleteVocabConcepts",
+        "operationId": "DeleteVocabConcepts1",
         "responses": {
           "200": {
             "description": "",
@@ -4866,12 +4868,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a vocab to an app.",
-        "operationId": "PostVocabConcepts",
+        "operationId": "PostVocabConcepts1",
         "responses": {
           "200": {
             "description": "",
@@ -4909,14 +4911,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs/{vocab_id}/concepts/{concept_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/vocabs/{vocab_id}/concepts/{concept_id}": {
       "delete": {
         "summary": "Delete a single concept from a vocab.",
-        "operationId": "DeleteVocabConcept",
+        "operationId": "DeleteVocabConcept1",
         "responses": {
           "200": {
             "description": "",
@@ -4952,14 +4954,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/workflows": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/workflows": {
       "get": {
         "summary": "List all the workflows.",
-        "operationId": "ListWorkflows",
+        "operationId": "ListWorkflows1",
         "responses": {
           "200": {
             "description": "",
@@ -4997,12 +4999,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete multiple workflows in one request.",
-        "operationId": "DeleteWorkflows",
+        "operationId": "DeleteWorkflows1",
         "responses": {
           "200": {
             "description": "",
@@ -5034,12 +5036,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
         "summary": "Add a workflow to an app.",
-        "operationId": "PostWorkflows",
+        "operationId": "PostWorkflows1",
         "responses": {
           "200": {
             "description": "",
@@ -5071,12 +5073,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
         "summary": "Patch one or more workflows.",
-        "operationId": "PatchWorkflows",
+        "operationId": "PatchWorkflows1",
         "responses": {
           "200": {
             "description": "",
@@ -5108,14 +5110,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/workflows/{workflow_id}": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/workflows/{workflow_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nWorkflows\n//////////////////////////////////////\nGet a specific workflow from an app.",
-        "operationId": "GetWorkflow",
+        "operationId": "GetWorkflow1",
         "responses": {
           "200": {
             "description": "",
@@ -5145,12 +5147,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
         "summary": "Delete a single workflow.",
-        "operationId": "DeleteWorkflow",
+        "operationId": "DeleteWorkflow1",
         "responses": {
           "200": {
             "description": "",
@@ -5180,14 +5182,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/workflows/{workflow_id}/results": {
+    "/users/{user_app_id.user_id}/apps/{user_app_id.app_id}/workflows/{workflow_id}/results": {
       "post": {
         "summary": "Predict using a workflow.",
-        "operationId": "PostWorkflowResults",
+        "operationId": "PostWorkflowResults1",
         "responses": {
           "200": {
             "description": "",
@@ -5225,11 +5227,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/billing_cycles": {
+    "/users/{user_app_id.user_id}/billing_cycles": {
       "get": {
         "summary": "//////////////////////////////////////\nUsage Dashboard\n//////////////////////////////////////",
         "operationId": "ListUserBillingCycles",
@@ -5270,11 +5272,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/consent": {
+    "/users/{user_app_id.user_id}/consent": {
       "post": {
         "summary": "Update gdpr fields to a specific user.",
         "operationId": "PostUserConsent",
@@ -5303,11 +5305,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/historical_usage": {
+    "/users/{user_app_id.user_id}/historical_usage": {
       "post": {
         "operationId": "PostHistoricalUsage",
         "responses": {
@@ -5335,11 +5337,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/keys": {
+    "/users/{user_app_id.user_id}/keys": {
       "get": {
         "summary": "List all the keys.",
         "operationId": "ListKeys",
@@ -5380,7 +5382,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "post": {
@@ -5411,7 +5413,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "patch": {
@@ -5442,11 +5444,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/keys/{key_id}": {
+    "/users/{user_app_id.user_id}/keys/{key_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nAPI Keys\n//////////////////////////////////////\nGet a specific key from an app.",
         "operationId": "GetKey",
@@ -5479,7 +5481,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       },
       "delete": {
@@ -5508,11 +5510,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/users/{user_app_id.user_id}/realtime_usage": {
+    "/users/{user_app_id.user_id}/realtime_usage": {
       "get": {
         "operationId": "GetRealtimeUsage",
         "responses": {
@@ -5538,11 +5540,11 @@
           }
         ],
         "tags": [
-          "V2"
+          "users"
         ]
       }
     },
-    "/v2/verify_email": {
+    "/verify_email": {
       "post": {
         "operationId": "PostVerifyEmail",
         "responses": {
@@ -5564,14 +5566,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "verify_email"
         ]
       }
     },
-    "/v2/visualizations": {
+    "/visualizations": {
       "post": {
         "summary": "Create a new visualization.",
-        "operationId": "PostVisualization",
+        "operationId": "PostVisualization2",
         "responses": {
           "200": {
             "description": "",
@@ -5591,14 +5593,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "visualizations"
         ]
       }
     },
-    "/v2/visualizations/app": {
+    "/visualizations/app": {
       "get": {
         "summary": "//////////////////////////////////////\nVisualizations\n//////////////////////////////////////\nSee if there has been an app visualization.",
-        "operationId": "GetAppVisualization",
+        "operationId": "GetAppVisualization2",
         "responses": {
           "200": {
             "description": "",
@@ -5622,14 +5624,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "visualizations"
         ]
       }
     },
-    "/v2/visualizations/{visualization_id}": {
+    "/visualizations/{visualization_id}": {
       "get": {
         "summary": "Get an existing visualization by id.",
-        "operationId": "GetVisualization",
+        "operationId": "GetVisualization2",
         "responses": {
           "200": {
             "description": "",
@@ -5659,14 +5661,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "visualizations"
         ]
       }
     },
-    "/v2/vocabs": {
+    "/vocabs": {
       "get": {
         "summary": "List all the vocabs.",
-        "operationId": "ListVocabs",
+        "operationId": "ListVocabs2",
         "responses": {
           "200": {
             "description": "",
@@ -5704,12 +5706,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       },
       "delete": {
         "summary": "Delete multiple vocabs in one request.",
-        "operationId": "DeleteVocabs",
+        "operationId": "DeleteVocabs2",
         "responses": {
           "200": {
             "description": "",
@@ -5729,12 +5731,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       },
       "post": {
         "summary": "Add a vocab to an app.",
-        "operationId": "PostVocabs",
+        "operationId": "PostVocabs2",
         "responses": {
           "200": {
             "description": "",
@@ -5754,12 +5756,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       },
       "patch": {
         "summary": "Patch one or more vocabs.",
-        "operationId": "PatchVocabs",
+        "operationId": "PatchVocabs2",
         "responses": {
           "200": {
             "description": "",
@@ -5779,14 +5781,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       }
     },
-    "/v2/vocabs/{vocab_id}": {
+    "/vocabs/{vocab_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nVocabs\n//////////////////////////////////////\nGet a specific vocab from an app.",
-        "operationId": "GetVocab",
+        "operationId": "GetVocab2",
         "responses": {
           "200": {
             "description": "",
@@ -5816,12 +5818,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       },
       "delete": {
         "summary": "Delete a single vocab.",
-        "operationId": "DeleteVocab",
+        "operationId": "DeleteVocab2",
         "responses": {
           "200": {
             "description": "",
@@ -5839,14 +5841,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       }
     },
-    "/v2/vocabs/{vocab_id}/concepts": {
+    "/vocabs/{vocab_id}/concepts": {
       "get": {
         "summary": "List all the vocabs.",
-        "operationId": "ListVocabConcepts",
+        "operationId": "ListVocabConcepts2",
         "responses": {
           "200": {
             "description": "",
@@ -5890,12 +5892,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       },
       "delete": {
         "summary": "Delete multiple concepts from a vocab in one request.",
-        "operationId": "DeleteVocabConcepts",
+        "operationId": "DeleteVocabConcepts2",
         "responses": {
           "200": {
             "description": "",
@@ -5921,12 +5923,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       },
       "post": {
         "summary": "Add a vocab to an app.",
-        "operationId": "PostVocabConcepts",
+        "operationId": "PostVocabConcepts2",
         "responses": {
           "200": {
             "description": "",
@@ -5952,14 +5954,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       }
     },
-    "/v2/vocabs/{vocab_id}/concepts/{concept_id}": {
+    "/vocabs/{vocab_id}/concepts/{concept_id}": {
       "delete": {
         "summary": "Delete a single concept from a vocab.",
-        "operationId": "DeleteVocabConcept",
+        "operationId": "DeleteVocabConcept2",
         "responses": {
           "200": {
             "description": "",
@@ -5983,14 +5985,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "vocabs"
         ]
       }
     },
-    "/v2/workflows": {
+    "/workflows": {
       "get": {
         "summary": "List all the workflows.",
-        "operationId": "ListWorkflows",
+        "operationId": "ListWorkflows2",
         "responses": {
           "200": {
             "description": "",
@@ -6028,12 +6030,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       },
       "delete": {
         "summary": "Delete multiple workflows in one request.",
-        "operationId": "DeleteWorkflows",
+        "operationId": "DeleteWorkflows2",
         "responses": {
           "200": {
             "description": "",
@@ -6053,12 +6055,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       },
       "post": {
         "summary": "Add a workflow to an app.",
-        "operationId": "PostWorkflows",
+        "operationId": "PostWorkflows2",
         "responses": {
           "200": {
             "description": "",
@@ -6078,12 +6080,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       },
       "patch": {
         "summary": "Patch one or more workflows.",
-        "operationId": "PatchWorkflows",
+        "operationId": "PatchWorkflows2",
         "responses": {
           "200": {
             "description": "",
@@ -6103,14 +6105,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       }
     },
-    "/v2/workflows/{workflow_id}": {
+    "/workflows/{workflow_id}": {
       "get": {
         "summary": "//////////////////////////////////////\nWorkflows\n//////////////////////////////////////\nGet a specific workflow from an app.",
-        "operationId": "GetWorkflow",
+        "operationId": "GetWorkflow2",
         "responses": {
           "200": {
             "description": "",
@@ -6140,12 +6142,12 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       },
       "delete": {
         "summary": "Delete a single workflow.",
-        "operationId": "DeleteWorkflow",
+        "operationId": "DeleteWorkflow2",
         "responses": {
           "200": {
             "description": "",
@@ -6163,14 +6165,14 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       }
     },
-    "/v2/workflows/{workflow_id}/results": {
+    "/workflows/{workflow_id}/results": {
       "post": {
         "summary": "Predict using a workflow.",
-        "operationId": "PostWorkflowResults",
+        "operationId": "PostWorkflowResults2",
         "responses": {
           "200": {
             "description": "",
@@ -6196,7 +6198,7 @@
           }
         ],
         "tags": [
-          "V2"
+          "workflows"
         ]
       }
     }
